@@ -16,7 +16,7 @@ services:
       POSTGRES_USER: ${DATABASE_USER}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
     ports:
-      - ${DATABASE_PORT}:${DATABASE_PORT}
+      - "${DATABASE_PORT}:${DATABASE_PORT}"
   nginx:
     build: ./nginx
     environment:
