@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  api:
+    image: egorgo/go-infra-backend:0.0.1
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+    expose:
+      - ${API_PORT}
+  postgres:
+    image: postgres:alpine
+    restart: always
+    environment:
+      POSTGRES_DB: ${DATABASE_NAME}
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+  nginx:
+    build: ./nginx
+    ports:
+      - ${NGINX_PORT}:${NGINX_PORT}
+    depends_on:
+      - api
