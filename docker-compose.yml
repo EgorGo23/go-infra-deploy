@@ -16,12 +16,9 @@ services:
       POSTGRES_USER: ${DATABASE_USER}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
     ports:
-      - "${DATABASE_PORT}:${DATABASE_PORT}"
+      - ${DATABASE_PORT}:${DATABASE_PORT}
   nginx:
     build: ./nginx
-    environment:
-    - NGINX_PORT=${NGINX_PORT}
-    - API_PORT=${API_PORT}
     ports:
       - 80:${NGINX_PORT}
     depends_on:
