@@ -12,8 +12,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           username: ${{ secrets.SSH_USERNAME }}
           script: |
-            sudo mkdir /app
-            cd app
             git clone https://github.com/EgorGo23/go-infra-deploy.git
             cd go-infra-deploy
             cp .env.example .env
