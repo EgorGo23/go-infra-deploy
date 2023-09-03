@@ -12,9 +12,9 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           username: ${{ secrets.SSH_USERNAME }}
           script: |
-            sudo rm /app
-            sudo mkdir /app
-            cd /app
+            sudo rm app
+            sudo mkdir app
+            cd app
             git pull https://github.com/EgorGo23/go-infra-deploy.git
             cp .env.example .env
             sudo docker-compose -f docker-compose.yml up --build -d
