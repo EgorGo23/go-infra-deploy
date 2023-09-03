@@ -16,3 +16,4 @@ jobs:
             cd go-infra-deploy
             cp .env.example .env
             sudo docker-compose -f docker-compose.yml up --build -d
+            exit
