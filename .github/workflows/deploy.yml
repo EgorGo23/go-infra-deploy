@@ -1,0 +1,18 @@
+name: Deploy script-panel
+on: workflow_dispatch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: connecting to a remote server via ssh and running deployment commands
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.HOST }}
+          key: ${{ secrets.SSH_KEY }}
+          script: whoami
+        #   script: |
+        #     cd /go-infra-deploy
+        #     cp .env.example .env
+        #     docker-compose -f docker-compose.yml build
+        #     docker-compose
