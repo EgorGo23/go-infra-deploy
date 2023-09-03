@@ -8,6 +8,10 @@ services:
       - postgres
     expose:
       - ${API_PORT}
+  ui:
+    image: egorgo/go-infra-front:0.0.1
+    expose:
+      - ${UI_PORT}
   postgres:
     image: postgres:alpine
     restart: always
