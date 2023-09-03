@@ -15,5 +15,6 @@ jobs:
             sudo mkdir /app
             cd app
             git clone https://github.com/EgorGo23/go-infra-deploy.git
+            cd go-infra-deploy
             cp .env.example .env
             sudo docker-compose -f docker-compose.yml up --build -d
