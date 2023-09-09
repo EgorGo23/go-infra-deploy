@@ -6,14 +6,12 @@ services:
       - .env
     depends_on:
       - postgres
-    networks:
-      - shared-network
     expose:
       - ${API_PORT}
   ui:
-    image: egorgo/go-infra-front:0.0.2
-    networks:
-      - shared-network
+    image: egorgo/go-infra-front:0.0.1
+    expose:
+      - ${UI_PORT}
   postgres:
     image: postgres:alpine
     restart: always
@@ -21,8 +19,6 @@ services:
       POSTGRES_DB: ${DATABASE_NAME}
       POSTGRES_USER: ${DATABASE_USER}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
-    networks:
-      - shared-network
   nginx:
     build: ./nginx
     ports:
@@ -30,8 +26,4 @@ services:
     depends_on:
       - api
       - ui
-    networks:
-      - shared-network
-
-networks:
-  shared-network:
+      
