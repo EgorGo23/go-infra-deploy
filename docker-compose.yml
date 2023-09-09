@@ -11,12 +11,9 @@ services:
     expose:
       - ${API_PORT}
   ui:
-    container_name: go-infra-front
     image: egorgo/go-infra-front:0.0.1
     networks:
       - shared-network
-    expose:
-      - ${UI_PORT}
   postgres:
     image: postgres:alpine
     restart: always
