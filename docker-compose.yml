@@ -11,7 +11,7 @@ services:
     expose:
       - ${API_PORT}
   ui:
-    image: egorgo/go-infra-front:0.0.1
+    image: egorgo/go-infra-front:0.0.2
     networks:
       - shared-network
   postgres:
