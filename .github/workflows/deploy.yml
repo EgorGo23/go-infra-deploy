@@ -8,12 +8,13 @@ jobs:
       - name: connecting to a remote server via ssh and running deployment commands
         uses: appleboy/ssh-action@v1.0.0
         with:
-          host: ${{ secrets.HOST }}
+          host: ${{ secrets.SSH_HOST }}
           key: ${{ secrets.SSH_KEY }}
-          username: ${{ secrets.USERNAME }}
-          script: whoami
-        #   script: |
-        #     cd /go-infra-deploy
-        #     cp .env.example .env
-        #     docker-compose -f docker-compose.yml build
-        #     docker-compose
+          username: ${{ secrets.SSH_USERNAME }}
+          script: |
+            git clone https://github.com/EgorGo23/go-infra-deploy.git
+            cd go-infra-deploy
+            cp .env.example .env
+            sudo docker-compose -f docker-compose.yml build
+            sudo docker-compose -f docker-compose.yml up
+            exit
