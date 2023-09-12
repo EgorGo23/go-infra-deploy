@@ -11,7 +11,7 @@ services:
     networks:
       - shared-network
   ui:
-    image: egorgo/go-infra-front:0.0.1
+    image: egorgo/go-infra-front:0.0.2
     environment:
       API_URL: "http://api/api/"
     ports:
