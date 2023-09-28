@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   api:
-    image: egorgo/go-infra-backend:0.0.1
+    image: egorgo/go-infra-backend:0.0.4
     env_file:
       - .env
     depends_on:
@@ -11,9 +11,7 @@ services:
     networks:
       - shared-network
   ui:
-    image: egorgo/go-infra-front:0.0.2
-    environment:
-      API_URL: "http://api/api/"
+    image: egorgo/go-infra-front:0.0.1
     ports:
       - ${UI_PORT}:${UI_PORT}
     networks:
