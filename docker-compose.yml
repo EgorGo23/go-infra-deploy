@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   api:
-    image: egorgo/go-infra-backend:0.0.10
+    image: egorgo/go-infra-backend:0.0.11
     platform: linux/amd64
     env_file:
       - .env
