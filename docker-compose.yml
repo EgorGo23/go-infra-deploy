@@ -1,7 +1,8 @@
 version: "3.8"
 services:
   api:
-    image: egorgo/go-infra-backend:0.0.7
+    image: egorgo/go-infra-backend:0.0.8
+    platform: linux/amd64
     env_file:
       - .env
     depends_on:
@@ -12,8 +13,9 @@ services:
       - shared-network
   ui:
     image: egorgo/go-infra-front:0.0.1
+    platform: linux/amd64
     ports:
-      - ${UI_PORT}:${UI_PORT}
+      - 5002:${UI_PORT}
     networks:
       - shared-network
   postgres:
@@ -27,6 +29,7 @@ services:
       - shared-network
   nginx:
     build: ./nginx
+    platform: linux/amd64
     ports:
       - 80:${NGINX_PORT}
     depends_on:
