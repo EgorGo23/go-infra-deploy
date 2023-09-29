@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   api:
-    image: egorgo/go-infra-backend:0.0.6
+    image: egorgo/go-infra-backend:0.0.7
     env_file:
       - .env
     depends_on:
